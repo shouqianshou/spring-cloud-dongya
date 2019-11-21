@@ -1,0 +1,17 @@
+package spring.cloud.dongya.server.client;
+
+
+import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+@FeignClient(
+        name = "spring-cloud-account",
+        path = "/account"
+)
+public interface AccountClient {
+
+    @GetMapping
+    public String getName(@RequestParam("Id") Long id);
+
+}
